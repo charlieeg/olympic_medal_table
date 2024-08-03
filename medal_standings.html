@@ -1,1694 +1,2578 @@
 
-            <html>
-            <head>
-                <title>Olympic Medal Standings</title>
-                <style>
-                    table {
-                        width: 50%;
-                        border-collapse: collapse;
-                        margin: 25px 0;
-                        font-size: 1em;
-                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                        min-width: 400px;
-                        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-                    }
-                    thead tr {
-                        background-color: #009879;
-                        color: #ffffff;
-                        text-align: left;
-                        font-weight: bold;
-                    }
-                    th, td {
-                        padding: 12px 15px;
-                        border: 1px solid #dddddd;
-                    }
-                    tbody tr {
-                        border-bottom: 1px solid #dddddd;
-                    }
-                    tbody tr:nth-of-type(even) {
-                        background-color: #f3f3f3;
-                    }
-                    tbody tr:last-of-type {
-                        border-bottom: 2px solid #009879;
-                    }
-                </style>
-            </head>
-            <body>
-                <h1>Olympic Medal Standings</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Country</th>
-                            <th>Gold</th>
-                            <th>Silver</th>
-                            <th>Bronze</th>
-                            <th>Total Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Olympics Medal Standings</title>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: white;
+                font-weight: bold;
+            }
+
+            .header-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .header-title {
+                margin: 0;
+                font-family: 'Playfair Display', serif;
+                font-size: 2.5em;
+                font-weight: bold;
+            }
+            .olympics-logo {
+                height: 50px; /* Adjust size as needed */
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
             
-                <tr>
-                    <td>United States</td>
-                    <td>9</td>
-                    <td>18</td>
-                    <td>16</td>
-                    <td>79</td>
-                </tr>
-                
-                <tr>
-                    <td>France</td>
-                    <td>11</td>
-                    <td>13</td>
-                    <td>13</td>
-                    <td>72</td>
-                </tr>
-                
-                <tr>
-                    <td>China</td>
-                    <td>13</td>
-                    <td>9</td>
-                    <td>9</td>
-                    <td>66</td>
-                </tr>
-                
-                <tr>
-                    <td>Great Britain</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>56</td>
-                </tr>
-                
-                <tr>
-                    <td>Australia</td>
-                    <td>11</td>
-                    <td>6</td>
-                    <td>5</td>
-                    <td>50</td>
-                </tr>
-                
-                <tr>
-                    <td>South Korea</td>
-                    <td>8</td>
-                    <td>5</td>
-                    <td>4</td>
-                    <td>38</td>
-                </tr>
-                
-                <tr>
-                    <td>Japan</td>
-                    <td>8</td>
-                    <td>4</td>
-                    <td>6</td>
-                    <td>38</td>
-                </tr>
-                
-                <tr>
-                    <td>Italy</td>
-                    <td>5</td>
-                    <td>8</td>
-                    <td>4</td>
-                    <td>35</td>
-                </tr>
-                
-                <tr>
-                    <td>Netherlands</td>
-                    <td>5</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>23</td>
-                </tr>
-                
-                <tr>
-                    <td>Canada</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>6</td>
-                    <td>21</td>
-                </tr>
-                
-                <tr>
-                    <td>Romania</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>1</td>
-                    <td>16</td>
-                </tr>
-                
-                <tr>
-                    <td>New Zealand</td>
-                    <td>2</td>
-                    <td>4</td>
-                    <td>1</td>
-                    <td>15</td>
-                </tr>
-                
-                <tr>
-                    <td>Germany</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>14</td>
-                </tr>
-                
-                <tr>
-                    <td>Hungary</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>12</td>
-                </tr>
-                
-                <tr>
-                    <td>Brazil</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>12</td>
-                </tr>
-                
-                <tr>
-                    <td>Sweden</td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>9</td>
-                </tr>
-                
-                <tr>
-                    <td>Switzerland</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>4</td>
-                    <td>9</td>
-                </tr>
-                
-                <tr>
-                    <td>Hong Kong</td>
-                    <td>2</td>
-                    <td>0</td>
-                    <td>2</td>
-                    <td>8</td>
-                </tr>
-                
-                <tr>
-                    <td>Ireland</td>
-                    <td>2</td>
-                    <td>0</td>
-                    <td>2</td>
-                    <td>8</td>
-                </tr>
-                
-                <tr>
-                    <td>Spain</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>8</td>
-                </tr>
-                
-                <tr>
-                    <td>Croatia</td>
-                    <td>2</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>7</td>
-                </tr>
-                
-                <tr>
-                    <td>Georgia</td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>0</td>
-                    <td>7</td>
-                </tr>
-                
-                <tr>
-                    <td>South Africa</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>7</td>
-                </tr>
-                
-                <tr>
-                    <td>Azerbaijan</td>
-                    <td>2</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>6</td>
-                </tr>
-                
-                <tr>
-                    <td>Belgium</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>2</td>
-                    <td>5</td>
-                </tr>
-                
-                <tr>
-                    <td>Kazakhstan</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>2</td>
-                    <td>5</td>
-                </tr>
-                
-                <tr>
-                    <td>Uzbekistan</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>2</td>
-                    <td>5</td>
-                </tr>
-                
-                <tr>
-                    <td>Israel</td>
-                    <td>0</td>
-                    <td>2</td>
-                    <td>1</td>
-                    <td>5</td>
-                </tr>
-                
-                <tr>
-                    <td>Mexico</td>
-                    <td>0</td>
-                    <td>2</td>
-                    <td>1</td>
-                    <td>5</td>
-                </tr>
-                
-                <tr>
-                    <td>Greece</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>5</td>
-                </tr>
-                
-                <tr>
-                    <td>Poland</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>5</td>
-                </tr>
-                
-                <tr>
-                    <td>Czech Republic</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>4</td>
-                </tr>
-                
-                <tr>
-                    <td>Guatemala</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>4</td>
-                </tr>
-                
-                <tr>
-                    <td>North Korea</td>
-                    <td>0</td>
-                    <td>2</td>
-                    <td>0</td>
-                    <td>4</td>
-                </tr>
-                
-                <tr>
-                    <td>Argentina</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>3</td>
-                </tr>
-                
-                <tr>
-                    <td>Ecuador</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>3</td>
-                </tr>
-                
-                <tr>
-                    <td>Serbia</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>3</td>
-                </tr>
-                
-                <tr>
-                    <td>Slovenia</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>3</td>
-                </tr>
-                
-                <tr>
-                    <td>Uganda</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>3</td>
-                </tr>
-                
-                <tr>
-                    <td>Kosovo</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>3</td>
-                </tr>
-                
-                <tr>
-                    <td>Turkey</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>3</td>
-                </tr>
-                
-                <tr>
-                    <td>Ukraine</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>3</td>
-                </tr>
-                
-                <tr>
-                    <td>India</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>3</td>
-                    <td>3</td>
-                </tr>
-                
-                <tr>
-                    <td>Ethiopia</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>2</td>
-                </tr>
-                
-                <tr>
-                    <td>Fiji</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>2</td>
-                </tr>
-                
-                <tr>
-                    <td>Mongolia</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>2</td>
-                </tr>
-                
-                <tr>
-                    <td>Tunisia</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>2</td>
-                </tr>
-                
-                <tr>
-                    <td>Moldova</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-                
-                <tr>
-                    <td>Tajikistan</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-                
-                <tr>
-                    <td>Austria</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                
-                <tr>
-                    <td>Egypt</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                
-                <tr>
-                    <td>Lithuania</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                
-                <tr>
-                    <td>Portugal</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                
-                <tr>
-                    <td>Slovakia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                
-                <tr>
-                    <td>Afghanistan</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Albania</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Algeria</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>American Samoa</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Andorra</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Angola</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Antigua and Barbuda</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Armenia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Aruba</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Bahamas</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Bahrain</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Bangladesh</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Barbados</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Belize</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Benin</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Bermuda</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Bhutan</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Bolivia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Bosnia-Herzegovina</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Botswana</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Brunei</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Bulgaria</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Burkina Faso</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Burundi</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Cape Verde</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Cambodia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Cameroon</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Cayman Islands</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Central African Republic</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Chad</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Chile</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Chinese Taipei</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Colombia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Comoros</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Congo</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Cook Islands</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Costa Rica</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Ivory Coast</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Cuba</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Cyprus</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Denmark</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Djibouti</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Dominica</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Dominican Republic</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>CODDR Congo</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>El Salvador</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Refugee Olympic Team</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Equatorial Guinea</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Eritrea</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Estonia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Eswatini</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Finland</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Gabon</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Gambia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Ghana</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Grenada</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Guam</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Guinea</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Guinea-Bissau</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Guyana</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Haiti</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Honduras</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Iceland</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Indonesia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Iran</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Iraq</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Jamaica</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Jordan</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Kenya</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Kiribati</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Kuwait</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Kyrgyzstan</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Laos</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Latvia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Lebanon</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Lesotho</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Liberia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Libya</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Liechtenstein</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Luxembourg</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Madagascar</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Malawi</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Malaysia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Maldives</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Mali</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Malta</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Marshall Islands</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Mauritania</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Mauritius</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Micronesia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Monaco</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Montenegro</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Morocco</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Mozambique</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Myanmar</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Namibia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Nauru</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Nepal</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Nicaragua</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Niger</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Nigeria</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>North Macedonia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Norway</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Oman</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Pakistan</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Palau</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Palestine</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Panama</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Papua New Guinea</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Paraguay</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Peru</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Philippines</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Puerto Rico</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Qatar</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Rwanda</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>St Lucia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Samoa</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>San Marino</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Sao Tome and Principe</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Saudi Arabia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Senegal</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Seychelles</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Sierra Leone</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Singapore</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Solomon Islands</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Somalia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>South Sudan</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Sri Lanka</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>St Kitts and Nevis</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>St Vincent and the Grenadines</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Sudan</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Suriname</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Syria</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Tanzania</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Thailand</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>East Timor</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Togo</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Tonga</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Trinidad and Tobago</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Turkmenistan</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Tuvalu</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>United Arab Emirates</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Uruguay</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Vanuatu</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Venezuela</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Vietnam</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>British Virgin Islands</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>American Virgin Islands</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Yemen</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Zambia</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                <tr>
-                    <td>Zimbabwe</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                
-                    </tbody>
-                </table>
-            </body>
-            </html>
-            
+            img.flag {
+                width: 30px; /* Adjust size as needed */
+                vertical-align: middle;
+                margin-right: 8px;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 12px;
+                text-align: left;
+            }
+            th {
+                background-color: #4CAF50;
+                color: white;
+                font-weight: bold;
+            }
+
+            .gold-header {
+            background-color: #FFD700;
+            }
+
+            .silver-header {
+            background-color: #C0C0C0;
+            }
+
+            .bronze-header {
+                background-color: #cd7f32;
+            }
+            td {
+                background-color: #f9f9f9;
+            }
+            img.flag {
+                width: 30px; /* Adjust size as needed */
+                vertical-align: middle;
+                margin-right: 8px;
+            }
+            .medal-icon {
+                width: 20px; /* Adjust size as needed */
+                vertical-align: middle;
+                margin-right: 5px;
+            }
+            .gold-icon {
+                content: url('https://example.com/gold-medal-icon.png');
+            }
+            .silver-icon {
+                content: url('https://example.com/silver-medal-icon.png');
+            }
+            .bronze-icon {
+                content: url('https://example.com/bronze-medal-icon.png');
+            }
+            .total-icons {
+                display: flex;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header-container">
+            <h1 class="header-title">Olympics Medal Standings</h1>
+            <img src="images/logo.png" alt="Olympics Logo" class="olympics-logo">
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Country</th>
+                    <th class="gold-header">Gold</th>
+                    <th class="silver-header">Silver</th>
+                    <th class="bronze-header">Bronze</th>
+                    <th>Total Score</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>1</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/us.png" alt="United States flag" class="flag">
+                    United States
+                </td>
+                <td>9</td>
+                <td>18</td>
+                <td>17</td>
+                <td>80</td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/fr.png" alt="France flag" class="flag">
+                    France
+                </td>
+                <td>11</td>
+                <td>13</td>
+                <td>13</td>
+                <td>72</td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/cn.png" alt="China flag" class="flag">
+                    China
+                </td>
+                <td>13</td>
+                <td>9</td>
+                <td>9</td>
+                <td>66</td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/gb.png" alt="Great Britain flag" class="flag">
+                    Great Britain
+                </td>
+                <td>10</td>
+                <td>10</td>
+                <td>9</td>
+                <td>59</td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/au.png" alt="Australia flag" class="flag">
+                    Australia
+                </td>
+                <td>11</td>
+                <td>6</td>
+                <td>5</td>
+                <td>50</td>
+            </tr>
+        
+            <tr>
+                <td>6</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/kr.png" alt="South Korea flag" class="flag">
+                    South Korea
+                </td>
+                <td>8</td>
+                <td>5</td>
+                <td>4</td>
+                <td>38</td>
+            </tr>
+        
+            <tr>
+                <td>6</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/jp.png" alt="Japan flag" class="flag">
+                    Japan
+                </td>
+                <td>8</td>
+                <td>4</td>
+                <td>6</td>
+                <td>38</td>
+            </tr>
+        
+            <tr>
+                <td>8</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/it.png" alt="Italy flag" class="flag">
+                    Italy
+                </td>
+                <td>5</td>
+                <td>8</td>
+                <td>4</td>
+                <td>35</td>
+            </tr>
+        
+            <tr>
+                <td>9</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/nl.png" alt="Netherlands flag" class="flag">
+                    Netherlands
+                </td>
+                <td>5</td>
+                <td>4</td>
+                <td>3</td>
+                <td>26</td>
+            </tr>
+        
+            <tr>
+                <td>10</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ca.png" alt="Canada flag" class="flag">
+                    Canada
+                </td>
+                <td>3</td>
+                <td>3</td>
+                <td>6</td>
+                <td>21</td>
+            </tr>
+        
+            <tr>
+                <td>11</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/de.png" alt="Germany flag" class="flag">
+                    Germany
+                </td>
+                <td>3</td>
+                <td>3</td>
+                <td>2</td>
+                <td>17</td>
+            </tr>
+        
+            <tr>
+                <td>12</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ro.png" alt="Romania flag" class="flag">
+                    Romania
+                </td>
+                <td>3</td>
+                <td>3</td>
+                <td>1</td>
+                <td>16</td>
+            </tr>
+        
+            <tr>
+                <td>13</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/nz.png" alt="New Zealand flag" class="flag">
+                    New Zealand
+                </td>
+                <td>2</td>
+                <td>4</td>
+                <td>1</td>
+                <td>15</td>
+            </tr>
+        
+            <tr>
+                <td>14</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/hu.png" alt="Hungary flag" class="flag">
+                    Hungary
+                </td>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>12</td>
+            </tr>
+        
+            <tr>
+                <td>14</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/br.png" alt="Brazil flag" class="flag">
+                    Brazil
+                </td>
+                <td>1</td>
+                <td>3</td>
+                <td>3</td>
+                <td>12</td>
+            </tr>
+        
+            <tr>
+                <td>16</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/se.png" alt="Sweden flag" class="flag">
+                    Sweden
+                </td>
+                <td>1</td>
+                <td>2</td>
+                <td>2</td>
+                <td>9</td>
+            </tr>
+        
+            <tr>
+                <td>16</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ch.png" alt="Switzerland flag" class="flag">
+                    Switzerland
+                </td>
+                <td>1</td>
+                <td>1</td>
+                <td>4</td>
+                <td>9</td>
+            </tr>
+        
+            <tr>
+                <td>18</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/hk.png" alt="Hong Kong flag" class="flag">
+                    Hong Kong
+                </td>
+                <td>2</td>
+                <td>0</td>
+                <td>2</td>
+                <td>8</td>
+            </tr>
+        
+            <tr>
+                <td>18</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ie.png" alt="Ireland flag" class="flag">
+                    Ireland
+                </td>
+                <td>2</td>
+                <td>0</td>
+                <td>2</td>
+                <td>8</td>
+            </tr>
+        
+            <tr>
+                <td>18</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/es.png" alt="Spain flag" class="flag">
+                    Spain
+                </td>
+                <td>1</td>
+                <td>1</td>
+                <td>3</td>
+                <td>8</td>
+            </tr>
+        
+            <tr>
+                <td>21</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/hr.png" alt="Croatia flag" class="flag">
+                    Croatia
+                </td>
+                <td>2</td>
+                <td>0</td>
+                <td>1</td>
+                <td>7</td>
+            </tr>
+        
+            <tr>
+                <td>21</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ge.png" alt="Georgia flag" class="flag">
+                    Georgia
+                </td>
+                <td>1</td>
+                <td>2</td>
+                <td>0</td>
+                <td>7</td>
+            </tr>
+        
+            <tr>
+                <td>21</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/za.png" alt="South Africa flag" class="flag">
+                    South Africa
+                </td>
+                <td>1</td>
+                <td>1</td>
+                <td>2</td>
+                <td>7</td>
+            </tr>
+        
+            <tr>
+                <td>24</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/az.png" alt="Azerbaijan flag" class="flag">
+                    Azerbaijan
+                </td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>6</td>
+            </tr>
+        
+            <tr>
+                <td>25</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/be.png" alt="Belgium flag" class="flag">
+                    Belgium
+                </td>
+                <td>1</td>
+                <td>0</td>
+                <td>2</td>
+                <td>5</td>
+            </tr>
+        
+            <tr>
+                <td>25</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/kz.png" alt="Kazakhstan flag" class="flag">
+                    Kazakhstan
+                </td>
+                <td>1</td>
+                <td>0</td>
+                <td>2</td>
+                <td>5</td>
+            </tr>
+        
+            <tr>
+                <td>25</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/uz.png" alt="Uzbekistan flag" class="flag">
+                    Uzbekistan
+                </td>
+                <td>1</td>
+                <td>0</td>
+                <td>2</td>
+                <td>5</td>
+            </tr>
+        
+            <tr>
+                <td>25</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/il.png" alt="Israel flag" class="flag">
+                    Israel
+                </td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+                <td>5</td>
+            </tr>
+        
+            <tr>
+                <td>25</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/mx.png" alt="Mexico flag" class="flag">
+                    Mexico
+                </td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+                <td>5</td>
+            </tr>
+        
+            <tr>
+                <td>25</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/gr.png" alt="Greece flag" class="flag">
+                    Greece
+                </td>
+                <td>0</td>
+                <td>1</td>
+                <td>3</td>
+                <td>5</td>
+            </tr>
+        
+            <tr>
+                <td>25</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/pl.png" alt="Poland flag" class="flag">
+                    Poland
+                </td>
+                <td>0</td>
+                <td>1</td>
+                <td>3</td>
+                <td>5</td>
+            </tr>
+        
+            <tr>
+                <td>32</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/cz.png" alt="Czech Republic flag" class="flag">
+                    Czech Republic
+                </td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>4</td>
+            </tr>
+        
+            <tr>
+                <td>32</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/gt.png" alt="Guatemala flag" class="flag">
+                    Guatemala
+                </td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>4</td>
+            </tr>
+        
+            <tr>
+                <td>32</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/kp.png" alt="North Korea flag" class="flag">
+                    North Korea
+                </td>
+                <td>0</td>
+                <td>2</td>
+                <td>0</td>
+                <td>4</td>
+            </tr>
+        
+            <tr>
+                <td>35</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ar.png" alt="Argentina flag" class="flag">
+                    Argentina
+                </td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+            </tr>
+        
+            <tr>
+                <td>35</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ec.png" alt="Ecuador flag" class="flag">
+                    Ecuador
+                </td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+            </tr>
+        
+            <tr>
+                <td>35</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/rs.png" alt="Serbia flag" class="flag">
+                    Serbia
+                </td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+            </tr>
+        
+            <tr>
+                <td>35</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/si.png" alt="Slovenia flag" class="flag">
+                    Slovenia
+                </td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+            </tr>
+        
+            <tr>
+                <td>35</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ug.png" alt="Uganda flag" class="flag">
+                    Uganda
+                </td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+            </tr>
+        
+            <tr>
+                <td>35</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/xk.png" alt="Kosovo flag" class="flag">
+                    Kosovo
+                </td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>3</td>
+            </tr>
+        
+            <tr>
+                <td>35</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/tr.png" alt="Turkey flag" class="flag">
+                    Turkey
+                </td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>3</td>
+            </tr>
+        
+            <tr>
+                <td>35</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ua.png" alt="Ukraine flag" class="flag">
+                    Ukraine
+                </td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>3</td>
+            </tr>
+        
+            <tr>
+                <td>35</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/in.png" alt="India flag" class="flag">
+                    India
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>3</td>
+            </tr>
+        
+            <tr>
+                <td>44</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/et.png" alt="Ethiopia flag" class="flag">
+                    Ethiopia
+                </td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>2</td>
+            </tr>
+        
+            <tr>
+                <td>44</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/fj.png" alt="Fiji flag" class="flag">
+                    Fiji
+                </td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>2</td>
+            </tr>
+        
+            <tr>
+                <td>44</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/mn.png" alt="Mongolia flag" class="flag">
+                    Mongolia
+                </td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>2</td>
+            </tr>
+        
+            <tr>
+                <td>44</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/tn.png" alt="Tunisia flag" class="flag">
+                    Tunisia
+                </td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>2</td>
+            </tr>
+        
+            <tr>
+                <td>44</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/md.png" alt="Moldova flag" class="flag">
+                    Moldova
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+        
+            <tr>
+                <td>44</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/tj.png" alt="Tajikistan flag" class="flag">
+                    Tajikistan
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+        
+            <tr>
+                <td>50</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/at.png" alt="Austria flag" class="flag">
+                    Austria
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        
+            <tr>
+                <td>50</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/eg.png" alt="Egypt flag" class="flag">
+                    Egypt
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        
+            <tr>
+                <td>50</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/lt.png" alt="Lithuania flag" class="flag">
+                    Lithuania
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        
+            <tr>
+                <td>50</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/pt.png" alt="Portugal flag" class="flag">
+                    Portugal
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        
+            <tr>
+                <td>50</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/sk.png" alt="Slovakia flag" class="flag">
+                    Slovakia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/af.png" alt="Afghanistan flag" class="flag">
+                    Afghanistan
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/al.png" alt="Albania flag" class="flag">
+                    Albania
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/dz.png" alt="Algeria flag" class="flag">
+                    Algeria
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/as.png" alt="American Samoa flag" class="flag">
+                    American Samoa
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ad.png" alt="Andorra flag" class="flag">
+                    Andorra
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ao.png" alt="Angola flag" class="flag">
+                    Angola
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ag.png" alt="Antigua and Barbuda flag" class="flag">
+                    Antigua and Barbuda
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/am.png" alt="Armenia flag" class="flag">
+                    Armenia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/aw.png" alt="Aruba flag" class="flag">
+                    Aruba
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/bs.png" alt="Bahamas flag" class="flag">
+                    Bahamas
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/bh.png" alt="Bahrain flag" class="flag">
+                    Bahrain
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/bd.png" alt="Bangladesh flag" class="flag">
+                    Bangladesh
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/bb.png" alt="Barbados flag" class="flag">
+                    Barbados
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/bz.png" alt="Belize flag" class="flag">
+                    Belize
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/bj.png" alt="Benin flag" class="flag">
+                    Benin
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/bm.png" alt="Bermuda flag" class="flag">
+                    Bermuda
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/bt.png" alt="Bhutan flag" class="flag">
+                    Bhutan
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/bo.png" alt="Bolivia flag" class="flag">
+                    Bolivia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ba.png" alt="Bosnia-Herzegovina flag" class="flag">
+                    Bosnia-Herzegovina
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/bw.png" alt="Botswana flag" class="flag">
+                    Botswana
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/bn.png" alt="Brunei flag" class="flag">
+                    Brunei
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/bg.png" alt="Bulgaria flag" class="flag">
+                    Bulgaria
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/bf.png" alt="Burkina Faso flag" class="flag">
+                    Burkina Faso
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/bi.png" alt="Burundi flag" class="flag">
+                    Burundi
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/cv.png" alt="Cape Verde flag" class="flag">
+                    Cape Verde
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/kh.png" alt="Cambodia flag" class="flag">
+                    Cambodia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/cm.png" alt="Cameroon flag" class="flag">
+                    Cameroon
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ky.png" alt="Cayman Islands flag" class="flag">
+                    Cayman Islands
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/cf.png" alt="Central African Republic flag" class="flag">
+                    Central African Republic
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/td.png" alt="Chad flag" class="flag">
+                    Chad
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/cl.png" alt="Chile flag" class="flag">
+                    Chile
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/tw.png" alt="Chinese Taipei flag" class="flag">
+                    Chinese Taipei
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/co.png" alt="Colombia flag" class="flag">
+                    Colombia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/km.png" alt="Comoros flag" class="flag">
+                    Comoros
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/cg.png" alt="Congo flag" class="flag">
+                    Congo
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ck.png" alt="Cook Islands flag" class="flag">
+                    Cook Islands
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/cr.png" alt="Costa Rica flag" class="flag">
+                    Costa Rica
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ci.png" alt="Ivory Coast flag" class="flag">
+                    Ivory Coast
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/cu.png" alt="Cuba flag" class="flag">
+                    Cuba
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/cy.png" alt="Cyprus flag" class="flag">
+                    Cyprus
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/dk.png" alt="Denmark flag" class="flag">
+                    Denmark
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/dj.png" alt="Djibouti flag" class="flag">
+                    Djibouti
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/dm.png" alt="Dominica flag" class="flag">
+                    Dominica
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/do.png" alt="Dominican Republic flag" class="flag">
+                    Dominican Republic
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/cg.png" alt="CODDR Congo flag" class="flag">
+                    CODDR Congo
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/sv.png" alt="El Salvador flag" class="flag">
+                    El Salvador
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/olympic.png" alt="Refugee Olympic Team flag" class="flag">
+                    Refugee Olympic Team
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/gq.png" alt="Equatorial Guinea flag" class="flag">
+                    Equatorial Guinea
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/er.png" alt="Eritrea flag" class="flag">
+                    Eritrea
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ee.png" alt="Estonia flag" class="flag">
+                    Estonia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/sz.png" alt="Eswatini flag" class="flag">
+                    Eswatini
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/fi.png" alt="Finland flag" class="flag">
+                    Finland
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ga.png" alt="Gabon flag" class="flag">
+                    Gabon
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/gm.png" alt="Gambia flag" class="flag">
+                    Gambia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/gh.png" alt="Ghana flag" class="flag">
+                    Ghana
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/gd.png" alt="Grenada flag" class="flag">
+                    Grenada
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/gu.png" alt="Guam flag" class="flag">
+                    Guam
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/gn.png" alt="Guinea flag" class="flag">
+                    Guinea
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/gw.png" alt="Guinea-Bissau flag" class="flag">
+                    Guinea-Bissau
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/gy.png" alt="Guyana flag" class="flag">
+                    Guyana
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ht.png" alt="Haiti flag" class="flag">
+                    Haiti
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/hn.png" alt="Honduras flag" class="flag">
+                    Honduras
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/is.png" alt="Iceland flag" class="flag">
+                    Iceland
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/id.png" alt="Indonesia flag" class="flag">
+                    Indonesia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ir.png" alt="Iran flag" class="flag">
+                    Iran
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/iq.png" alt="Iraq flag" class="flag">
+                    Iraq
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/jm.png" alt="Jamaica flag" class="flag">
+                    Jamaica
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/jo.png" alt="Jordan flag" class="flag">
+                    Jordan
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ke.png" alt="Kenya flag" class="flag">
+                    Kenya
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ki.png" alt="Kiribati flag" class="flag">
+                    Kiribati
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/kw.png" alt="Kuwait flag" class="flag">
+                    Kuwait
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/kg.png" alt="Kyrgyzstan flag" class="flag">
+                    Kyrgyzstan
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/la.png" alt="Laos flag" class="flag">
+                    Laos
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/lv.png" alt="Latvia flag" class="flag">
+                    Latvia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/lb.png" alt="Lebanon flag" class="flag">
+                    Lebanon
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ls.png" alt="Lesotho flag" class="flag">
+                    Lesotho
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/lr.png" alt="Liberia flag" class="flag">
+                    Liberia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ly.png" alt="Libya flag" class="flag">
+                    Libya
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/li.png" alt="Liechtenstein flag" class="flag">
+                    Liechtenstein
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/lu.png" alt="Luxembourg flag" class="flag">
+                    Luxembourg
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/mg.png" alt="Madagascar flag" class="flag">
+                    Madagascar
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/mw.png" alt="Malawi flag" class="flag">
+                    Malawi
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/my.png" alt="Malaysia flag" class="flag">
+                    Malaysia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/mv.png" alt="Maldives flag" class="flag">
+                    Maldives
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ml.png" alt="Mali flag" class="flag">
+                    Mali
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/mt.png" alt="Malta flag" class="flag">
+                    Malta
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/mh.png" alt="Marshall Islands flag" class="flag">
+                    Marshall Islands
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/mr.png" alt="Mauritania flag" class="flag">
+                    Mauritania
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/mu.png" alt="Mauritius flag" class="flag">
+                    Mauritius
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/fm.png" alt="Micronesia flag" class="flag">
+                    Micronesia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/mc.png" alt="Monaco flag" class="flag">
+                    Monaco
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/me.png" alt="Montenegro flag" class="flag">
+                    Montenegro
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ma.png" alt="Morocco flag" class="flag">
+                    Morocco
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/mz.png" alt="Mozambique flag" class="flag">
+                    Mozambique
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/mm.png" alt="Myanmar flag" class="flag">
+                    Myanmar
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/na.png" alt="Namibia flag" class="flag">
+                    Namibia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/nr.png" alt="Nauru flag" class="flag">
+                    Nauru
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/np.png" alt="Nepal flag" class="flag">
+                    Nepal
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ni.png" alt="Nicaragua flag" class="flag">
+                    Nicaragua
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ne.png" alt="Niger flag" class="flag">
+                    Niger
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ng.png" alt="Nigeria flag" class="flag">
+                    Nigeria
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/mk.png" alt="North Macedonia flag" class="flag">
+                    North Macedonia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/no.png" alt="Norway flag" class="flag">
+                    Norway
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/om.png" alt="Oman flag" class="flag">
+                    Oman
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/pk.png" alt="Pakistan flag" class="flag">
+                    Pakistan
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/pw.png" alt="Palau flag" class="flag">
+                    Palau
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ps.png" alt="Palestine flag" class="flag">
+                    Palestine
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/pa.png" alt="Panama flag" class="flag">
+                    Panama
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/pg.png" alt="Papua New Guinea flag" class="flag">
+                    Papua New Guinea
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/py.png" alt="Paraguay flag" class="flag">
+                    Paraguay
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/pe.png" alt="Peru flag" class="flag">
+                    Peru
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ph.png" alt="Philippines flag" class="flag">
+                    Philippines
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/pr.png" alt="Puerto Rico flag" class="flag">
+                    Puerto Rico
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/qa.png" alt="Qatar flag" class="flag">
+                    Qatar
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/rw.png" alt="Rwanda flag" class="flag">
+                    Rwanda
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/lc.png" alt="St Lucia flag" class="flag">
+                    St Lucia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ws.png" alt="Samoa flag" class="flag">
+                    Samoa
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/sm.png" alt="San Marino flag" class="flag">
+                    San Marino
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/st.png" alt="Sao Tome and Principe flag" class="flag">
+                    Sao Tome and Principe
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/sa.png" alt="Saudi Arabia flag" class="flag">
+                    Saudi Arabia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/sn.png" alt="Senegal flag" class="flag">
+                    Senegal
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/sc.png" alt="Seychelles flag" class="flag">
+                    Seychelles
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/sl.png" alt="Sierra Leone flag" class="flag">
+                    Sierra Leone
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/sg.png" alt="Singapore flag" class="flag">
+                    Singapore
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/sb.png" alt="Solomon Islands flag" class="flag">
+                    Solomon Islands
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/so.png" alt="Somalia flag" class="flag">
+                    Somalia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ss.png" alt="South Sudan flag" class="flag">
+                    South Sudan
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/lk.png" alt="Sri Lanka flag" class="flag">
+                    Sri Lanka
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/kn.png" alt="St Kitts and Nevis flag" class="flag">
+                    St Kitts and Nevis
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/vc.png" alt="St Vincent and the Grenadines flag" class="flag">
+                    St Vincent and the Grenadines
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/sd.png" alt="Sudan flag" class="flag">
+                    Sudan
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/sr.png" alt="Suriname flag" class="flag">
+                    Suriname
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/sy.png" alt="Syria flag" class="flag">
+                    Syria
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/tz.png" alt="Tanzania flag" class="flag">
+                    Tanzania
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/th.png" alt="Thailand flag" class="flag">
+                    Thailand
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/tl.png" alt="East Timor flag" class="flag">
+                    East Timor
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/tg.png" alt="Togo flag" class="flag">
+                    Togo
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/to.png" alt="Tonga flag" class="flag">
+                    Tonga
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/tt.png" alt="Trinidad and Tobago flag" class="flag">
+                    Trinidad and Tobago
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/tm.png" alt="Turkmenistan flag" class="flag">
+                    Turkmenistan
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/tv.png" alt="Tuvalu flag" class="flag">
+                    Tuvalu
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ae.png" alt="United Arab Emirates flag" class="flag">
+                    United Arab Emirates
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/uy.png" alt="Uruguay flag" class="flag">
+                    Uruguay
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/vu.png" alt="Vanuatu flag" class="flag">
+                    Vanuatu
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ve.png" alt="Venezuela flag" class="flag">
+                    Venezuela
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/vn.png" alt="Vietnam flag" class="flag">
+                    Vietnam
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/vg.png" alt="British Virgin Islands flag" class="flag">
+                    British Virgin Islands
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/vi.png" alt="American Virgin Islands flag" class="flag">
+                    American Virgin Islands
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ye.png" alt="Yemen flag" class="flag">
+                    Yemen
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/zm.png" alt="Zambia flag" class="flag">
+                    Zambia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>55</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/zw.png" alt="Zimbabwe flag" class="flag">
+                    Zimbabwe
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    
