@@ -291,104 +291,154 @@ def fetch_medal_data():
     # HTML content
     html_content = """
     <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Olympics Medal Standings</title>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 20px;
-                background-color: white;
-                font-weight: bold;
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympics Medal Standings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: white;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center all content in the body */
+        }
+
+        .header-container {
+            text-align: center;
+            width: 100%;
+            max-width: 800px; /* Limit header width to match table */
+            margin-bottom: 20px; /* Space between header and table */
+        }
+
+        .header-title {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .header-subtitle {
+            margin: 15px 0 20px 0;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .olympics-logo {
+            height: 50px; /* Adjust size as needed */
+            margin: 30px auto;
+            display: block; /* Center image in the header container */
+        }
+
+        .table-container {
+            width: 100%;
+            max-width: 800px; /* Limit table width to match header */
+            overflow-x: auto; /* Enable horizontal scroll on small screens */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img.flag {
+            width: 30px; /* Adjust size as needed */
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+
+        .gold-header {
+            background-color: #FFD700;
+        }
+
+        .silver-header {
+            background-color: #C0C0C0;
+        }
+
+        .bronze-header {
+            background-color: #cd7f32;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        .medal-icon {
+            width: 20px; /* Adjust size as needed */
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        .gold-icon {
+            content: url('https://example.com/gold-medal-icon.png');
+        }
+
+        .silver-icon {
+            content: url('https://example.com/silver-medal-icon.png');
+        }
+
+        .bronze-icon {
+            content: url('https://example.com/bronze-medal-icon.png');
+        }
+
+        .total-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2em; /* Slightly smaller font size for mobile */
+            }
+
+            .header-subtitle {
+                font-size: 1em; /* Slightly smaller font size for mobile */
+            }
+
+            .olympics-logo {
+                height: 40px; /* Adjust size for mobile */
             }
 
             .header-container {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .header-title {
-                margin: 0;
-                font-family: 'Playfair Display', serif;
-                font-size: 2.5em;
-                font-weight: bold;
-            }
-            .olympics-logo {
-                height: 50px; /* Adjust size as needed */
+                max-width: 100%; /* Full width on mobile */
             }
 
-            table {
-                width: 100%;
-                border-collapse: collapse;
-                margin: 20px 0;
-                background-color: #fff;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            .table-container {
+                max-width: 100%; /* Full width on mobile */
             }
-            
-            img.flag {
-                width: 30px; /* Adjust size as needed */
-                vertical-align: middle;
-                margin-right: 8px;
-            }
-            th, td {
-                border: 1px solid #ddd;
-                padding: 12px;
-                text-align: left;
-            }
-            th {
-                background-color: #4CAF50;
-                color: white;
-                font-weight: bold;
-            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1 class="header-title">Fairer Olympic Scoring:<br>Balanced Model Rankings</h1>
+        <p class="header-subtitle">This table uses a weighted scoring system to rank countries, giving more value to gold medals and less to silver and bronze. This approach aims to provide a more balanced comparison of Olympic achievements.</p>
+        <img src="images/logo.png" alt="Olympics Logo" class="olympics-logo">
+    </div>
 
-            .gold-header {
-            background-color: #FFD700;
-            }
-
-            .silver-header {
-            background-color: #C0C0C0;
-            }
-
-            .bronze-header {
-                background-color: #cd7f32;
-            }
-            td {
-                background-color: #f9f9f9;
-            }
-            img.flag {
-                width: 30px; /* Adjust size as needed */
-                vertical-align: middle;
-                margin-right: 8px;
-            }
-            .medal-icon {
-                width: 20px; /* Adjust size as needed */
-                vertical-align: middle;
-                margin-right: 5px;
-            }
-            .gold-icon {
-                content: url('https://example.com/gold-medal-icon.png');
-            }
-            .silver-icon {
-                content: url('https://example.com/silver-medal-icon.png');
-            }
-            .bronze-icon {
-                content: url('https://example.com/bronze-medal-icon.png');
-            }
-            .total-icons {
-                display: flex;
-                align-items: center;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="header-container">
-            <h1 class="header-title">Olympics Medal Standings</h1>
-            <img src="images/logo.png" alt="Olympics Logo" class="olympics-logo">
-        </div>
+    <div class="table-container">
         <table>
             <thead>
                 <tr>
