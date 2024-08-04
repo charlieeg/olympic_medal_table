@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olympics Medal Standings</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -66,7 +67,7 @@
         }
 
         th, td {
-            border: 1px solid #ddd;
+            border: 3px solid #ddd;
             padding: 12px;
             text-align: left;
         }
@@ -75,6 +76,7 @@
             background-color: #4CAF50;
             color: white;
             font-weight: bold;
+            border 5px solid black;
         }
 
         .gold-header {
@@ -116,6 +118,7 @@
             align-items: center;
         }
 
+
         /* Media query for mobile devices */
         @media (max-width: 768px) {
             .header-title {
@@ -148,7 +151,7 @@
     </div>
 
     <div class="table-container">
-        <table>
+        <table id="medal-table">
             <thead>
                 <tr>
                     <th>Rank</th>
@@ -167,10 +170,10 @@
                     <img src="https://flagcdn.com/h40/us.png" alt="United States flag" class="flag">
                     United States
                 </td>
-                <td>14</td>
-                <td>24</td>
-                <td>23</td>
-                <td>113</td>
+                <td>19</td>
+                <td>26</td>
+                <td>26</td>
+                <td>135</td>
             </tr>
         
             <tr>
@@ -179,10 +182,10 @@
                     <img src="https://flagcdn.com/h40/cn.png" alt="China flag" class="flag">
                     China
                 </td>
-                <td>16</td>
-                <td>12</td>
-                <td>9</td>
-                <td>81</td>
+                <td>19</td>
+                <td>15</td>
+                <td>11</td>
+                <td>98</td>
             </tr>
         
             <tr>
@@ -193,8 +196,8 @@
                 </td>
                 <td>12</td>
                 <td>14</td>
-                <td>15</td>
-                <td>79</td>
+                <td>18</td>
+                <td>82</td>
             </tr>
         
             <tr>
@@ -204,9 +207,9 @@
                     Great Britain
                 </td>
                 <td>10</td>
-                <td>10</td>
-                <td>13</td>
-                <td>63</td>
+                <td>12</td>
+                <td>15</td>
+                <td>69</td>
             </tr>
         
             <tr>
@@ -216,9 +219,9 @@
                     Australia
                 </td>
                 <td>12</td>
+                <td>11</td>
                 <td>8</td>
-                <td>7</td>
-                <td>59</td>
+                <td>66</td>
             </tr>
         
             <tr>
@@ -227,10 +230,10 @@
                     <img src="https://flagcdn.com/h40/kr.png" alt="South Korea flag" class="flag">
                     South Korea
                 </td>
-                <td>9</td>
+                <td>10</td>
                 <td>7</td>
-                <td>5</td>
-                <td>46</td>
+                <td>7</td>
+                <td>51</td>
             </tr>
         
             <tr>
@@ -239,10 +242,10 @@
                     <img src="https://flagcdn.com/h40/jp.png" alt="Japan flag" class="flag">
                     Japan
                 </td>
-                <td>8</td>
-                <td>5</td>
                 <td>9</td>
-                <td>43</td>
+                <td>5</td>
+                <td>10</td>
+                <td>47</td>
             </tr>
         
             <tr>
@@ -251,10 +254,10 @@
                     <img src="https://flagcdn.com/h40/it.png" alt="Italy flag" class="flag">
                     Italy
                 </td>
-                <td>6</td>
-                <td>8</td>
+                <td>7</td>
+                <td>10</td>
                 <td>5</td>
-                <td>39</td>
+                <td>46</td>
             </tr>
         
             <tr>
@@ -264,9 +267,9 @@
                     Netherlands
                 </td>
                 <td>6</td>
+                <td>5</td>
                 <td>4</td>
-                <td>4</td>
-                <td>30</td>
+                <td>32</td>
             </tr>
         
             <tr>
@@ -275,10 +278,10 @@
                     <img src="https://flagcdn.com/h40/ca.png" alt="Canada flag" class="flag">
                     Canada
                 </td>
+                <td>5</td>
                 <td>4</td>
-                <td>4</td>
-                <td>7</td>
-                <td>27</td>
+                <td>8</td>
+                <td>31</td>
             </tr>
         
             <tr>
@@ -287,14 +290,26 @@
                     <img src="https://flagcdn.com/h40/de.png" alt="Germany flag" class="flag">
                     Germany
                 </td>
-                <td>4</td>
-                <td>4</td>
+                <td>5</td>
+                <td>5</td>
                 <td>2</td>
-                <td>22</td>
+                <td>27</td>
             </tr>
         
             <tr>
                 <td>12</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/hu.png" alt="Hungary flag" class="flag">
+                    Hungary
+                </td>
+                <td>3</td>
+                <td>3</td>
+                <td>2</td>
+                <td>17</td>
+            </tr>
+        
+            <tr>
+                <td>13</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ro.png" alt="Romania flag" class="flag">
                     Romania
@@ -306,7 +321,7 @@
             </tr>
         
             <tr>
-                <td>12</td>
+                <td>13</td>
                 <td>
                     <img src="https://flagcdn.com/h40/br.png" alt="Brazil flag" class="flag">
                     Brazil
@@ -318,19 +333,7 @@
             </tr>
         
             <tr>
-                <td>14</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/hu.png" alt="Hungary flag" class="flag">
-                    Hungary
-                </td>
-                <td>3</td>
-                <td>2</td>
-                <td>2</td>
                 <td>15</td>
-            </tr>
-        
-            <tr>
-                <td>14</td>
                 <td>
                     <img src="https://flagcdn.com/h40/nz.png" alt="New Zealand flag" class="flag">
                     New Zealand
@@ -344,6 +347,30 @@
             <tr>
                 <td>16</td>
                 <td>
+                    <img src="https://flagcdn.com/h40/se.png" alt="Sweden flag" class="flag">
+                    Sweden
+                </td>
+                <td>2</td>
+                <td>3</td>
+                <td>2</td>
+                <td>14</td>
+            </tr>
+        
+            <tr>
+                <td>17</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ie.png" alt="Ireland flag" class="flag">
+                    Ireland
+                </td>
+                <td>3</td>
+                <td>0</td>
+                <td>3</td>
+                <td>12</td>
+            </tr>
+        
+            <tr>
+                <td>17</td>
+                <td>
                     <img src="https://flagcdn.com/h40/il.png" alt="Israel flag" class="flag">
                     Israel
                 </td>
@@ -356,17 +383,29 @@
             <tr>
                 <td>17</td>
                 <td>
-                    <img src="https://flagcdn.com/h40/ie.png" alt="Ireland flag" class="flag">
-                    Ireland
+                    <img src="https://flagcdn.com/h40/es.png" alt="Spain flag" class="flag">
+                    Spain
                 </td>
-                <td>3</td>
-                <td>0</td>
+                <td>1</td>
                 <td>2</td>
+                <td>5</td>
+                <td>12</td>
+            </tr>
+        
+            <tr>
+                <td>20</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/ua.png" alt="Ukraine flag" class="flag">
+                    Ukraine
+                </td>
+                <td>2</td>
+                <td>1</td>
+                <td>3</td>
                 <td>11</td>
             </tr>
         
             <tr>
-                <td>18</td>
+                <td>21</td>
                 <td>
                     <img src="https://flagcdn.com/h40/hr.png" alt="Croatia flag" class="flag">
                     Croatia
@@ -378,19 +417,19 @@
             </tr>
         
             <tr>
-                <td>18</td>
+                <td>21</td>
                 <td>
-                    <img src="https://flagcdn.com/h40/se.png" alt="Sweden flag" class="flag">
-                    Sweden
+                    <img src="https://flagcdn.com/h40/be.png" alt="Belgium flag" class="flag">
+                    Belgium
                 </td>
-                <td>1</td>
                 <td>2</td>
-                <td>2</td>
+                <td>0</td>
+                <td>3</td>
                 <td>9</td>
             </tr>
         
             <tr>
-                <td>18</td>
+                <td>21</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ch.png" alt="Switzerland flag" class="flag">
                     Switzerland
@@ -402,19 +441,7 @@
             </tr>
         
             <tr>
-                <td>21</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/be.png" alt="Belgium flag" class="flag">
-                    Belgium
-                </td>
-                <td>2</td>
-                <td>0</td>
-                <td>2</td>
-                <td>8</td>
-            </tr>
-        
-            <tr>
-                <td>21</td>
+                <td>24</td>
                 <td>
                     <img src="https://flagcdn.com/h40/hk.png" alt="Hong Kong flag" class="flag">
                     Hong Kong
@@ -426,18 +453,6 @@
             </tr>
         
             <tr>
-                <td>21</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/es.png" alt="Spain flag" class="flag">
-                    Spain
-                </td>
-                <td>1</td>
-                <td>1</td>
-                <td>3</td>
-                <td>8</td>
-            </tr>
-        
-            <tr>
                 <td>24</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ge.png" alt="Georgia flag" class="flag">
@@ -445,12 +460,12 @@
                 </td>
                 <td>1</td>
                 <td>2</td>
-                <td>0</td>
-                <td>7</td>
+                <td>1</td>
+                <td>8</td>
             </tr>
         
             <tr>
-                <td>24</td>
+                <td>26</td>
                 <td>
                     <img src="https://flagcdn.com/h40/kz.png" alt="Kazakhstan flag" class="flag">
                     Kazakhstan
@@ -462,7 +477,7 @@
             </tr>
         
             <tr>
-                <td>24</td>
+                <td>26</td>
                 <td>
                     <img src="https://flagcdn.com/h40/za.png" alt="South Africa flag" class="flag">
                     South Africa
@@ -474,7 +489,7 @@
             </tr>
         
             <tr>
-                <td>27</td>
+                <td>28</td>
                 <td>
                     <img src="https://flagcdn.com/h40/az.png" alt="Azerbaijan flag" class="flag">
                     Azerbaijan
@@ -486,19 +501,55 @@
             </tr>
         
             <tr>
-                <td>27</td>
+                <td>28</td>
                 <td>
-                    <img src="https://flagcdn.com/h40/ua.png" alt="Ukraine flag" class="flag">
-                    Ukraine
+                    <img src="https://flagcdn.com/h40/ph.png" alt="Philippines flag" class="flag">
+                    Philippines
                 </td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
                 <td>6</td>
             </tr>
         
             <tr>
-                <td>29</td>
+                <td>28</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/rs.png" alt="Serbia flag" class="flag">
+                    Serbia
+                </td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>6</td>
+            </tr>
+        
+            <tr>
+                <td>28</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/gr.png" alt="Greece flag" class="flag">
+                    Greece
+                </td>
+                <td>0</td>
+                <td>1</td>
+                <td>4</td>
+                <td>6</td>
+            </tr>
+        
+            <tr>
+                <td>32</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/tw.png" alt="Chinese Taipei flag" class="flag">
+                    Chinese Taipei
+                </td>
+                <td>1</td>
+                <td>0</td>
+                <td>2</td>
+                <td>5</td>
+            </tr>
+        
+            <tr>
+                <td>32</td>
                 <td>
                     <img src="https://flagcdn.com/h40/uz.png" alt="Uzbekistan flag" class="flag">
                     Uzbekistan
@@ -510,7 +561,31 @@
             </tr>
         
             <tr>
-                <td>29</td>
+                <td>32</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/kp.png" alt="North Korea flag" class="flag">
+                    North Korea
+                </td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+                <td>5</td>
+            </tr>
+        
+            <tr>
+                <td>32</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/jm.png" alt="Jamaica flag" class="flag">
+                    Jamaica
+                </td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+                <td>5</td>
+            </tr>
+        
+            <tr>
+                <td>32</td>
                 <td>
                     <img src="https://flagcdn.com/h40/mx.png" alt="Mexico flag" class="flag">
                     Mexico
@@ -522,19 +597,7 @@
             </tr>
         
             <tr>
-                <td>29</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/gr.png" alt="Greece flag" class="flag">
-                    Greece
-                </td>
-                <td>0</td>
-                <td>1</td>
-                <td>3</td>
-                <td>5</td>
-            </tr>
-        
-            <tr>
-                <td>29</td>
+                <td>32</td>
                 <td>
                     <img src="https://flagcdn.com/h40/pl.png" alt="Poland flag" class="flag">
                     Poland
@@ -546,7 +609,7 @@
             </tr>
         
             <tr>
-                <td>33</td>
+                <td>38</td>
                 <td>
                     <img src="https://flagcdn.com/h40/cz.png" alt="Czech Republic flag" class="flag">
                     Czech Republic
@@ -558,7 +621,7 @@
             </tr>
         
             <tr>
-                <td>33</td>
+                <td>38</td>
                 <td>
                     <img src="https://flagcdn.com/h40/gt.png" alt="Guatemala flag" class="flag">
                     Guatemala
@@ -570,19 +633,19 @@
             </tr>
         
             <tr>
-                <td>33</td>
+                <td>40</td>
                 <td>
-                    <img src="https://flagcdn.com/h40/kp.png" alt="North Korea flag" class="flag">
-                    North Korea
+                    <img src="https://flagcdn.com/h40/dz.png" alt="Algeria flag" class="flag">
+                    Algeria
                 </td>
+                <td>1</td>
                 <td>0</td>
-                <td>2</td>
                 <td>0</td>
-                <td>4</td>
+                <td>3</td>
             </tr>
         
             <tr>
-                <td>36</td>
+                <td>40</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ar.png" alt="Argentina flag" class="flag">
                     Argentina
@@ -594,7 +657,19 @@
             </tr>
         
             <tr>
-                <td>36</td>
+                <td>40</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/cl.png" alt="Chile flag" class="flag">
+                    Chile
+                </td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+            </tr>
+        
+            <tr>
+                <td>40</td>
                 <td>
                     <img src="https://flagcdn.com/h40/dm.png" alt="Dominica flag" class="flag">
                     Dominica
@@ -606,7 +681,7 @@
             </tr>
         
             <tr>
-                <td>36</td>
+                <td>40</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ec.png" alt="Ecuador flag" class="flag">
                     Ecuador
@@ -618,7 +693,7 @@
             </tr>
         
             <tr>
-                <td>36</td>
+                <td>40</td>
                 <td>
                     <img src="https://flagcdn.com/h40/no.png" alt="Norway flag" class="flag">
                     Norway
@@ -630,19 +705,7 @@
             </tr>
         
             <tr>
-                <td>36</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/ph.png" alt="Philippines flag" class="flag">
-                    Philippines
-                </td>
-                <td>1</td>
-                <td>0</td>
-                <td>0</td>
-                <td>3</td>
-            </tr>
-        
-            <tr>
-                <td>36</td>
+                <td>40</td>
                 <td>
                     <img src="https://flagcdn.com/h40/lc.png" alt="St Lucia flag" class="flag">
                     St Lucia
@@ -654,19 +717,7 @@
             </tr>
         
             <tr>
-                <td>36</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/rs.png" alt="Serbia flag" class="flag">
-                    Serbia
-                </td>
-                <td>1</td>
-                <td>0</td>
-                <td>0</td>
-                <td>3</td>
-            </tr>
-        
-            <tr>
-                <td>36</td>
+                <td>40</td>
                 <td>
                     <img src="https://flagcdn.com/h40/si.png" alt="Slovenia flag" class="flag">
                     Slovenia
@@ -678,7 +729,7 @@
             </tr>
         
             <tr>
-                <td>36</td>
+                <td>40</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ug.png" alt="Uganda flag" class="flag">
                     Uganda
@@ -690,19 +741,7 @@
             </tr>
         
             <tr>
-                <td>36</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/jm.png" alt="Jamaica flag" class="flag">
-                    Jamaica
-                </td>
-                <td>0</td>
-                <td>1</td>
-                <td>1</td>
-                <td>3</td>
-            </tr>
-        
-            <tr>
-                <td>36</td>
+                <td>40</td>
                 <td>
                     <img src="https://flagcdn.com/h40/xk.png" alt="Kosovo flag" class="flag">
                     Kosovo
@@ -714,7 +753,7 @@
             </tr>
         
             <tr>
-                <td>36</td>
+                <td>40</td>
                 <td>
                     <img src="https://flagcdn.com/h40/tr.png" alt="Turkey flag" class="flag">
                     Turkey
@@ -726,7 +765,7 @@
             </tr>
         
             <tr>
-                <td>36</td>
+                <td>40</td>
                 <td>
                     <img src="https://flagcdn.com/h40/in.png" alt="India flag" class="flag">
                     India
@@ -738,7 +777,31 @@
             </tr>
         
             <tr>
-                <td>49</td>
+                <td>40</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/tj.png" alt="Tajikistan flag" class="flag">
+                    Tajikistan
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>3</td>
+            </tr>
+        
+            <tr>
+                <td>53</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/am.png" alt="Armenia flag" class="flag">
+                    Armenia
+                </td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>2</td>
+            </tr>
+        
+            <tr>
+                <td>53</td>
                 <td>
                     <img src="https://flagcdn.com/h40/dk.png" alt="Denmark flag" class="flag">
                     Denmark
@@ -750,7 +813,7 @@
             </tr>
         
             <tr>
-                <td>49</td>
+                <td>53</td>
                 <td>
                     <img src="https://flagcdn.com/h40/et.png" alt="Ethiopia flag" class="flag">
                     Ethiopia
@@ -762,7 +825,7 @@
             </tr>
         
             <tr>
-                <td>49</td>
+                <td>53</td>
                 <td>
                     <img src="https://flagcdn.com/h40/fj.png" alt="Fiji flag" class="flag">
                     Fiji
@@ -774,7 +837,7 @@
             </tr>
         
             <tr>
-                <td>49</td>
+                <td>53</td>
                 <td>
                     <img src="https://flagcdn.com/h40/mn.png" alt="Mongolia flag" class="flag">
                     Mongolia
@@ -786,7 +849,7 @@
             </tr>
         
             <tr>
-                <td>49</td>
+                <td>53</td>
                 <td>
                     <img src="https://flagcdn.com/h40/tn.png" alt="Tunisia flag" class="flag">
                     Tunisia
@@ -798,10 +861,10 @@
             </tr>
         
             <tr>
-                <td>49</td>
+                <td>53</td>
                 <td>
-                    <img src="https://flagcdn.com/h40/tw.png" alt="Chinese Taipei flag" class="flag">
-                    Chinese Taipei
+                    <img src="https://flagcdn.com/h40/do.png" alt="Dominican Republic flag" class="flag">
+                    Dominican Republic
                 </td>
                 <td>0</td>
                 <td>0</td>
@@ -810,7 +873,7 @@
             </tr>
         
             <tr>
-                <td>49</td>
+                <td>53</td>
                 <td>
                     <img src="https://flagcdn.com/h40/md.png" alt="Moldova flag" class="flag">
                     Moldova
@@ -822,19 +885,7 @@
             </tr>
         
             <tr>
-                <td>49</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/tj.png" alt="Tajikistan flag" class="flag">
-                    Tajikistan
-                </td>
-                <td>0</td>
-                <td>0</td>
-                <td>2</td>
-                <td>2</td>
-            </tr>
-        
-            <tr>
-                <td>57</td>
+                <td>61</td>
                 <td>
                     <img src="https://flagcdn.com/h40/at.png" alt="Austria flag" class="flag">
                     Austria
@@ -846,7 +897,31 @@
             </tr>
         
             <tr>
-                <td>57</td>
+                <td>61</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/cv.png" alt="Cape Verde flag" class="flag">
+                    Cape Verde
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        
+            <tr>
+                <td>61</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/cu.png" alt="Cuba flag" class="flag">
+                    Cuba
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        
+            <tr>
+                <td>61</td>
                 <td>
                     <img src="https://flagcdn.com/h40/eg.png" alt="Egypt flag" class="flag">
                     Egypt
@@ -858,7 +933,7 @@
             </tr>
         
             <tr>
-                <td>57</td>
+                <td>61</td>
                 <td>
                     <img src="https://flagcdn.com/h40/gd.png" alt="Grenada flag" class="flag">
                     Grenada
@@ -870,7 +945,19 @@
             </tr>
         
             <tr>
-                <td>57</td>
+                <td>61</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/id.png" alt="Indonesia flag" class="flag">
+                    Indonesia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        
+            <tr>
+                <td>61</td>
                 <td>
                     <img src="https://flagcdn.com/h40/lt.png" alt="Lithuania flag" class="flag">
                     Lithuania
@@ -882,7 +969,19 @@
             </tr>
         
             <tr>
-                <td>57</td>
+                <td>61</td>
+                <td>
+                    <img src="https://flagcdn.com/h40/my.png" alt="Malaysia flag" class="flag">
+                    Malaysia
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        
+            <tr>
+                <td>61</td>
                 <td>
                     <img src="https://flagcdn.com/h40/pt.png" alt="Portugal flag" class="flag">
                     Portugal
@@ -894,7 +993,7 @@
             </tr>
         
             <tr>
-                <td>57</td>
+                <td>61</td>
                 <td>
                     <img src="https://flagcdn.com/h40/sk.png" alt="Slovakia flag" class="flag">
                     Slovakia
@@ -906,7 +1005,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/af.png" alt="Afghanistan flag" class="flag">
                     Afghanistan
@@ -918,7 +1017,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/al.png" alt="Albania flag" class="flag">
                     Albania
@@ -930,19 +1029,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/dz.png" alt="Algeria flag" class="flag">
-                    Algeria
-                </td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-        
-            <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/as.png" alt="American Samoa flag" class="flag">
                     American Samoa
@@ -954,7 +1041,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ad.png" alt="Andorra flag" class="flag">
                     Andorra
@@ -966,7 +1053,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ao.png" alt="Angola flag" class="flag">
                     Angola
@@ -978,7 +1065,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ag.png" alt="Antigua and Barbuda flag" class="flag">
                     Antigua and Barbuda
@@ -990,19 +1077,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/am.png" alt="Armenia flag" class="flag">
-                    Armenia
-                </td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-        
-            <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/aw.png" alt="Aruba flag" class="flag">
                     Aruba
@@ -1014,7 +1089,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/bs.png" alt="Bahamas flag" class="flag">
                     Bahamas
@@ -1026,7 +1101,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/bh.png" alt="Bahrain flag" class="flag">
                     Bahrain
@@ -1038,7 +1113,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/bd.png" alt="Bangladesh flag" class="flag">
                     Bangladesh
@@ -1050,7 +1125,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/bb.png" alt="Barbados flag" class="flag">
                     Barbados
@@ -1062,7 +1137,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/bz.png" alt="Belize flag" class="flag">
                     Belize
@@ -1074,7 +1149,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/bj.png" alt="Benin flag" class="flag">
                     Benin
@@ -1086,7 +1161,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/bm.png" alt="Bermuda flag" class="flag">
                     Bermuda
@@ -1098,7 +1173,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/bt.png" alt="Bhutan flag" class="flag">
                     Bhutan
@@ -1110,7 +1185,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/bo.png" alt="Bolivia flag" class="flag">
                     Bolivia
@@ -1122,7 +1197,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ba.png" alt="Bosnia-Herzegovina flag" class="flag">
                     Bosnia-Herzegovina
@@ -1134,7 +1209,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/bw.png" alt="Botswana flag" class="flag">
                     Botswana
@@ -1146,7 +1221,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/bn.png" alt="Brunei flag" class="flag">
                     Brunei
@@ -1158,7 +1233,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/bg.png" alt="Bulgaria flag" class="flag">
                     Bulgaria
@@ -1170,7 +1245,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/bf.png" alt="Burkina Faso flag" class="flag">
                     Burkina Faso
@@ -1182,7 +1257,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/bi.png" alt="Burundi flag" class="flag">
                     Burundi
@@ -1194,19 +1269,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/cv.png" alt="Cape Verde flag" class="flag">
-                    Cape Verde
-                </td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-        
-            <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/kh.png" alt="Cambodia flag" class="flag">
                     Cambodia
@@ -1218,7 +1281,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/cm.png" alt="Cameroon flag" class="flag">
                     Cameroon
@@ -1230,7 +1293,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ky.png" alt="Cayman Islands flag" class="flag">
                     Cayman Islands
@@ -1242,7 +1305,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/cf.png" alt="Central African Republic flag" class="flag">
                     Central African Republic
@@ -1254,7 +1317,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/td.png" alt="Chad flag" class="flag">
                     Chad
@@ -1266,19 +1329,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/cl.png" alt="Chile flag" class="flag">
-                    Chile
-                </td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-        
-            <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/co.png" alt="Colombia flag" class="flag">
                     Colombia
@@ -1290,7 +1341,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/km.png" alt="Comoros flag" class="flag">
                     Comoros
@@ -1302,7 +1353,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/cg.png" alt="Congo flag" class="flag">
                     Congo
@@ -1314,7 +1365,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ck.png" alt="Cook Islands flag" class="flag">
                     Cook Islands
@@ -1326,7 +1377,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/cr.png" alt="Costa Rica flag" class="flag">
                     Costa Rica
@@ -1338,7 +1389,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ci.png" alt="Ivory Coast flag" class="flag">
                     Ivory Coast
@@ -1350,19 +1401,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/cu.png" alt="Cuba flag" class="flag">
-                    Cuba
-                </td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-        
-            <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/cy.png" alt="Cyprus flag" class="flag">
                     Cyprus
@@ -1374,7 +1413,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/dj.png" alt="Djibouti flag" class="flag">
                     Djibouti
@@ -1386,19 +1425,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/do.png" alt="Dominican Republic flag" class="flag">
-                    Dominican Republic
-                </td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-        
-            <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/cg.png" alt="CODDR Congo flag" class="flag">
                     CODDR Congo
@@ -1410,7 +1437,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/sv.png" alt="El Salvador flag" class="flag">
                     El Salvador
@@ -1422,7 +1449,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/olympic.png" alt="Refugee Olympic Team flag" class="flag">
                     Refugee Olympic Team
@@ -1434,7 +1461,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/gq.png" alt="Equatorial Guinea flag" class="flag">
                     Equatorial Guinea
@@ -1446,7 +1473,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/er.png" alt="Eritrea flag" class="flag">
                     Eritrea
@@ -1458,7 +1485,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ee.png" alt="Estonia flag" class="flag">
                     Estonia
@@ -1470,7 +1497,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/sz.png" alt="Eswatini flag" class="flag">
                     Eswatini
@@ -1482,7 +1509,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/fi.png" alt="Finland flag" class="flag">
                     Finland
@@ -1494,7 +1521,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ga.png" alt="Gabon flag" class="flag">
                     Gabon
@@ -1506,7 +1533,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/gm.png" alt="Gambia flag" class="flag">
                     Gambia
@@ -1518,7 +1545,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/gh.png" alt="Ghana flag" class="flag">
                     Ghana
@@ -1530,7 +1557,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/gu.png" alt="Guam flag" class="flag">
                     Guam
@@ -1542,7 +1569,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/gn.png" alt="Guinea flag" class="flag">
                     Guinea
@@ -1554,7 +1581,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/gw.png" alt="Guinea-Bissau flag" class="flag">
                     Guinea-Bissau
@@ -1566,7 +1593,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/gy.png" alt="Guyana flag" class="flag">
                     Guyana
@@ -1578,7 +1605,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ht.png" alt="Haiti flag" class="flag">
                     Haiti
@@ -1590,7 +1617,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/hn.png" alt="Honduras flag" class="flag">
                     Honduras
@@ -1602,7 +1629,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/is.png" alt="Iceland flag" class="flag">
                     Iceland
@@ -1614,19 +1641,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/id.png" alt="Indonesia flag" class="flag">
-                    Indonesia
-                </td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-        
-            <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ir.png" alt="Iran flag" class="flag">
                     Iran
@@ -1638,7 +1653,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/iq.png" alt="Iraq flag" class="flag">
                     Iraq
@@ -1650,7 +1665,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/jo.png" alt="Jordan flag" class="flag">
                     Jordan
@@ -1662,7 +1677,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ke.png" alt="Kenya flag" class="flag">
                     Kenya
@@ -1674,7 +1689,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ki.png" alt="Kiribati flag" class="flag">
                     Kiribati
@@ -1686,7 +1701,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/kw.png" alt="Kuwait flag" class="flag">
                     Kuwait
@@ -1698,7 +1713,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/kg.png" alt="Kyrgyzstan flag" class="flag">
                     Kyrgyzstan
@@ -1710,7 +1725,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/la.png" alt="Laos flag" class="flag">
                     Laos
@@ -1722,7 +1737,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/lv.png" alt="Latvia flag" class="flag">
                     Latvia
@@ -1734,7 +1749,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/lb.png" alt="Lebanon flag" class="flag">
                     Lebanon
@@ -1746,7 +1761,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ls.png" alt="Lesotho flag" class="flag">
                     Lesotho
@@ -1758,7 +1773,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/lr.png" alt="Liberia flag" class="flag">
                     Liberia
@@ -1770,7 +1785,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ly.png" alt="Libya flag" class="flag">
                     Libya
@@ -1782,7 +1797,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/li.png" alt="Liechtenstein flag" class="flag">
                     Liechtenstein
@@ -1794,7 +1809,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/lu.png" alt="Luxembourg flag" class="flag">
                     Luxembourg
@@ -1806,7 +1821,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/mg.png" alt="Madagascar flag" class="flag">
                     Madagascar
@@ -1818,7 +1833,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/mw.png" alt="Malawi flag" class="flag">
                     Malawi
@@ -1830,19 +1845,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
-                <td>
-                    <img src="https://flagcdn.com/h40/my.png" alt="Malaysia flag" class="flag">
-                    Malaysia
-                </td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-        
-            <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/mv.png" alt="Maldives flag" class="flag">
                     Maldives
@@ -1854,7 +1857,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ml.png" alt="Mali flag" class="flag">
                     Mali
@@ -1866,7 +1869,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/mt.png" alt="Malta flag" class="flag">
                     Malta
@@ -1878,7 +1881,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/mh.png" alt="Marshall Islands flag" class="flag">
                     Marshall Islands
@@ -1890,7 +1893,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/mr.png" alt="Mauritania flag" class="flag">
                     Mauritania
@@ -1902,7 +1905,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/mu.png" alt="Mauritius flag" class="flag">
                     Mauritius
@@ -1914,7 +1917,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/fm.png" alt="Micronesia flag" class="flag">
                     Micronesia
@@ -1926,7 +1929,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/mc.png" alt="Monaco flag" class="flag">
                     Monaco
@@ -1938,7 +1941,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/me.png" alt="Montenegro flag" class="flag">
                     Montenegro
@@ -1950,7 +1953,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ma.png" alt="Morocco flag" class="flag">
                     Morocco
@@ -1962,7 +1965,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/mz.png" alt="Mozambique flag" class="flag">
                     Mozambique
@@ -1974,7 +1977,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/mm.png" alt="Myanmar flag" class="flag">
                     Myanmar
@@ -1986,7 +1989,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/na.png" alt="Namibia flag" class="flag">
                     Namibia
@@ -1998,7 +2001,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/nr.png" alt="Nauru flag" class="flag">
                     Nauru
@@ -2010,7 +2013,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/np.png" alt="Nepal flag" class="flag">
                     Nepal
@@ -2022,7 +2025,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ni.png" alt="Nicaragua flag" class="flag">
                     Nicaragua
@@ -2034,7 +2037,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ne.png" alt="Niger flag" class="flag">
                     Niger
@@ -2046,7 +2049,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ng.png" alt="Nigeria flag" class="flag">
                     Nigeria
@@ -2058,7 +2061,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/mk.png" alt="North Macedonia flag" class="flag">
                     North Macedonia
@@ -2070,7 +2073,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/om.png" alt="Oman flag" class="flag">
                     Oman
@@ -2082,7 +2085,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/pk.png" alt="Pakistan flag" class="flag">
                     Pakistan
@@ -2094,7 +2097,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/pw.png" alt="Palau flag" class="flag">
                     Palau
@@ -2106,7 +2109,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ps.png" alt="Palestine flag" class="flag">
                     Palestine
@@ -2118,7 +2121,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/pa.png" alt="Panama flag" class="flag">
                     Panama
@@ -2130,7 +2133,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/pg.png" alt="Papua New Guinea flag" class="flag">
                     Papua New Guinea
@@ -2142,7 +2145,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/py.png" alt="Paraguay flag" class="flag">
                     Paraguay
@@ -2154,7 +2157,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/pe.png" alt="Peru flag" class="flag">
                     Peru
@@ -2166,7 +2169,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/pr.png" alt="Puerto Rico flag" class="flag">
                     Puerto Rico
@@ -2178,7 +2181,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/qa.png" alt="Qatar flag" class="flag">
                     Qatar
@@ -2190,7 +2193,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/rw.png" alt="Rwanda flag" class="flag">
                     Rwanda
@@ -2202,7 +2205,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ws.png" alt="Samoa flag" class="flag">
                     Samoa
@@ -2214,7 +2217,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/sm.png" alt="San Marino flag" class="flag">
                     San Marino
@@ -2226,7 +2229,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/st.png" alt="Sao Tome and Principe flag" class="flag">
                     Sao Tome and Principe
@@ -2238,7 +2241,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/sa.png" alt="Saudi Arabia flag" class="flag">
                     Saudi Arabia
@@ -2250,7 +2253,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/sn.png" alt="Senegal flag" class="flag">
                     Senegal
@@ -2262,7 +2265,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/sc.png" alt="Seychelles flag" class="flag">
                     Seychelles
@@ -2274,7 +2277,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/sl.png" alt="Sierra Leone flag" class="flag">
                     Sierra Leone
@@ -2286,7 +2289,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/sg.png" alt="Singapore flag" class="flag">
                     Singapore
@@ -2298,7 +2301,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/sb.png" alt="Solomon Islands flag" class="flag">
                     Solomon Islands
@@ -2310,7 +2313,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/so.png" alt="Somalia flag" class="flag">
                     Somalia
@@ -2322,7 +2325,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ss.png" alt="South Sudan flag" class="flag">
                     South Sudan
@@ -2334,7 +2337,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/lk.png" alt="Sri Lanka flag" class="flag">
                     Sri Lanka
@@ -2346,7 +2349,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/kn.png" alt="St Kitts and Nevis flag" class="flag">
                     St Kitts and Nevis
@@ -2358,7 +2361,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/vc.png" alt="St Vincent and the Grenadines flag" class="flag">
                     St Vincent and the Grenadines
@@ -2370,7 +2373,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/sd.png" alt="Sudan flag" class="flag">
                     Sudan
@@ -2382,7 +2385,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/sr.png" alt="Suriname flag" class="flag">
                     Suriname
@@ -2394,7 +2397,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/sy.png" alt="Syria flag" class="flag">
                     Syria
@@ -2406,7 +2409,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/tz.png" alt="Tanzania flag" class="flag">
                     Tanzania
@@ -2418,7 +2421,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/th.png" alt="Thailand flag" class="flag">
                     Thailand
@@ -2430,7 +2433,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/tl.png" alt="East Timor flag" class="flag">
                     East Timor
@@ -2442,7 +2445,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/tg.png" alt="Togo flag" class="flag">
                     Togo
@@ -2454,7 +2457,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/to.png" alt="Tonga flag" class="flag">
                     Tonga
@@ -2466,7 +2469,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/tt.png" alt="Trinidad and Tobago flag" class="flag">
                     Trinidad and Tobago
@@ -2478,7 +2481,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/tm.png" alt="Turkmenistan flag" class="flag">
                     Turkmenistan
@@ -2490,7 +2493,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/tv.png" alt="Tuvalu flag" class="flag">
                     Tuvalu
@@ -2502,7 +2505,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ae.png" alt="United Arab Emirates flag" class="flag">
                     United Arab Emirates
@@ -2514,7 +2517,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/uy.png" alt="Uruguay flag" class="flag">
                     Uruguay
@@ -2526,7 +2529,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/vu.png" alt="Vanuatu flag" class="flag">
                     Vanuatu
@@ -2538,7 +2541,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ve.png" alt="Venezuela flag" class="flag">
                     Venezuela
@@ -2550,7 +2553,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/vn.png" alt="Vietnam flag" class="flag">
                     Vietnam
@@ -2562,7 +2565,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/vg.png" alt="British Virgin Islands flag" class="flag">
                     British Virgin Islands
@@ -2574,7 +2577,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/vi.png" alt="American Virgin Islands flag" class="flag">
                     American Virgin Islands
@@ -2586,7 +2589,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/ye.png" alt="Yemen flag" class="flag">
                     Yemen
@@ -2598,7 +2601,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/zm.png" alt="Zambia flag" class="flag">
                     Zambia
@@ -2610,7 +2613,7 @@
             </tr>
         
             <tr>
-                <td>63</td>
+                <td>71</td>
                 <td>
                     <img src="https://flagcdn.com/h40/zw.png" alt="Zimbabwe flag" class="flag">
                     Zimbabwe

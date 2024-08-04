@@ -297,6 +297,7 @@ def fetch_medal_data():
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olympics Medal Standings</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -357,7 +358,7 @@ def fetch_medal_data():
         }
 
         th, td {
-            border: 1px solid #ddd;
+            border: 3px solid #ddd;
             padding: 12px;
             text-align: left;
         }
@@ -366,6 +367,7 @@ def fetch_medal_data():
             background-color: #4CAF50;
             color: white;
             font-weight: bold;
+            border 5px solid black;
         }
 
         .gold-header {
@@ -407,6 +409,7 @@ def fetch_medal_data():
             align-items: center;
         }
 
+
         /* Media query for mobile devices */
         @media (max-width: 768px) {
             .header-title {
@@ -439,7 +442,7 @@ def fetch_medal_data():
     </div>
 
     <div class="table-container">
-        <table>
+        <table id="medal-table">
             <thead>
                 <tr>
                     <th>Rank</th>
