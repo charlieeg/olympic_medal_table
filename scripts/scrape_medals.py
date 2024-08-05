@@ -387,9 +387,13 @@ def fetch_medal_data():
         }
 
         .medal-icon {
-            width: 20px; /* Adjust size as needed */
+            width: 28px; /* Adjust size as needed */
             vertical-align: middle;
-            margin-right: 5px;
+            margin-right: 15px;
+        }
+
+        .medal-points-text {
+        margin-right: 15px;
         }
 
         .gold-icon {
@@ -436,9 +440,12 @@ def fetch_medal_data():
 </head>
 <body>
     <div class="header-container">
+        <img src="images/logo.png" alt="Olympics Logo" class="olympics-logo">
         <h1 class="header-title">Fairer Olympic Scoring:<br>Balanced Model Rankings</h1>
         <p class="header-subtitle">This table uses a weighted scoring system to rank countries, giving more value to gold medals and less to silver and bronze. This approach aims to provide a more balanced comparison of Olympic achievements.</p>
-        <img src="images/logo.png" alt="Olympics Logo" class="olympics-logo">
+        <p><img class = "medal-icon" src="images/gold-medal.png"><span class = "medal-points-text">3 points</span>
+           <img class = "medal-icon" src="images/silver-medal.png"><span class = "medal-points-text">2 points</span>
+              <img class = "medal-icon" src="images/bronze-medal.png"><span class = "medal-points-text">1 point</span></p>
     </div>
 
     <div class="table-container">
